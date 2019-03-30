@@ -18,7 +18,7 @@ wykorzystanie [jdosbox](https://sourceforge.net/projects/jdosbox/), który zosta
 
 Wykonanie:
 
-    $ lnibbles.sh
+    $ ./lnibbles.sh
 
 powinno wystarczyć! :)
 
