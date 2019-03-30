@@ -1,0 +1,278 @@
+
+
+                * * * * * * * * * * * * * * * * * * * * * * * *
+                * +            FACE of the EVIL             + *
+                *                                             *
+                *                 ^-- � --^                 *
+                *               :|<^.  �  .^>|;               *
+                *                  \ �/"\� /                  *
+                *                    `   '                    *
+                *                                             *
+                * +      F E A R   D O M I N A T I O N      + *
+                * * * * * * * * * * * * * * * * * * * * * * * *
+
+                                P R E S E N T S
+
+                   ���������������������������������������ͻ
+                   � �     ��  � � �    �    �   ���   ��� �
+                   � �     ����� � ���� ���� �  ����� ���  �
+                   � ��� � �  �� � ���� ���� �� ����� ���� �
+                   ���������������������������������������ͼ
+
+
+
+-------------------------------------------------------------------------------
+ [ 1 ]                           WIELKI WYBUCH
+-------------------------------------------------------------------------------
+
+    Ho,ho, i oto stalo sie! Po dwoch tygodniach ciezkiej (!) pracy mamy nowa,
+ wspanialsza (sic!) wersje tej  C U D O W N E J  gry. Jednak nie goraczkujmy
+ sie za bardzo, bo moze nie tak do konca jeszcze "mamy", tzn. program do kto-
+ rego dolaczam ten "txt" to wersja beta pierwszego wydania L.Nibbles'ow, nie-
+ rozniacych sie prawie w ogole od starych Nibble'sow. Prawie...  tzn. mamy tu-
+ taj  B U I L D 'A ( !JA PIERDOLE! ) i mozemy sobie sami robic plansze!
+ Jezeli juz jestesmy przy tym temacie,  to musze powiedziec, ze ow Build nie-
+ kiedy  moze naprawde wq... , wiec spokojnie z nim, bez  pospiechu i zbednych
+ nerwow. Tych, ktorzy chca budowac odsylam do rozdzialu :
+
+           "Budowlanka - ogolny zarys architektury przestrzeni czyli to co
+                      znajduje  sie w plikach '*.nbb' i co tworzymy za po-
+                      moca  programu  BUILD,  oraz podsawowe  wiadomosci z
+                      zakresu zagadnien zwiazanych z tegoz programu obsluga".
+
+    Dalej, powinniscie miec w katalogu LNibbles program SetUp ( raczej niepo-
+ trzebny w tej podstawowej wersji, chociaz... ), jego omowienie znajdziecie w
+ rozdziale :
+
+           "SetUp - Masoni w perspektywie 64KB.( Nie mazac! )".
+
+    Omowienie  zalet i wad tej interpretacji Nibbles'ow ( nie mowie, ze wszy-
+ stkich - przypominam :
+
+      + ---------------------------------------------------------- +
+      |  [!]  PROGRAM JEST PIERWSZA WERSJA I JEST W FAZIE TESTOW.  |
+      + ---------------------------------------------------------- +
+
+    dlatego tez nie klnijcie jezeli cos przeoczylem! )
+
+ znajdziecie w rozdziale :
+
+           "Nibbles - czyli 0,9 predkosci swiatla i wciaz przyspieszasz".
+
+    Polecam rowniez rozdzial:
+
+           "Oddech Bogow - ticki i sztuczki inzynieri genetycznej oraz spo-
+                             soby zaginania przestrzeni jak i rowniez kilka
+                             slow o tym co Nibbles'y lubia najbardziej".
+
+
+    Ja dziekuje wszystkim za uwage i do zobaczenia w "STUDNI"! ;-)
+
+                                                                        Luka.
+
+
+-------------------------------------------------------------------------------
+ [ 2 ]                             BUDOWLANKA
+-------------------------------------------------------------------------------
+         nazwa programu : Build
+wykorzystane biblioteki : system   ( TP 7.0 )
+                          crt      ( TP 7.0 )
+                          dos      ( TP 7.0 )
+                          klawisze (  Luka  )
+                          kursory  (  Luka  )
+                          UPlansze (  Luka  )
+
+            + --------------------------------------------------- +
+            |    Wynikien dzialania programu sa pliki '*.nbb'.    |
+            + --------------------------------------------------- +
+
+     Jaki Build jest taki jest - pocieszam  sie ze do Duka Nuken'a 1.3 tez nie
+byl rewelacyjny. Ale dosc nazekan ! Jezeli  komus  bardzo nie  odpowiada to na
+koncu  rozdzialu  podaje  budowe  rekordu TPlansza  ( pliki  '*.nbb' to mowiac
+"Pascalowo" file of TPlansza ),  wiec mozecie  sobie napisac wlasny Build ( co
+nie jest trudne - polecam mlodym programistom ).
+
+     Klawiszologia Builda oraz to co powinno sie znalesc w projekcie (aby mogl
+stworzyc rekord ) wyjasnione jest w "pomocy"( F1 ) programu,tutaj tylko troche
+rad.
+
+  � Na  poczatku plansza jest tylko na ekranie, jezeli chcesz ja zachowac
+  najpierw musisz utworzyc rekord. Robi sie to klawiszem <INS> -dokladniej
+  wstawiasz  plansze do Listy_Plansz.  Dopiero te liste  mozesz zapisac na
+  dysku ( klawisz <F2> ).
+    Jezeli chcesz uniknac "straconych godzin" musisz dokladnie zrozumiec
+  roznice pomiedzy klawiszami <ENTER>, <INS> oraz <'n'>.
+
+  � Zmiana kolejnosci plansz. Ta procedura dziala dobrze dopoty, dopoki
+  ilosc plansz jest <= 9. Tak wiec jezeli masz ich wiecej "posortuj" je
+  najpierw w mniejszuch plikach, a nastepnie polacz te pliki ( jedna z
+  funkcji kryjacych sie pod klawiszem <F3> ).
+
+  � Do szybszego rysowania (szczegolnie w pionie) uzywaj lewych klawiszy :
+  [<CTRL>,<ALT> oraz <SHIFT>] + strzalki.
+
+  Z mojej strony to wszystko. Nie siedzcie zbyt dlugo.
+
+           + -------------------------------------------------- +
+�����������|                    Rekord TPlansze                 |�����������Ŀ
+�          + -------------------------------------------------- +            �
+�                                                                            �
+�    PPlansza = ^TPlansza;                                                   �
+�    TPlansza = record                                                       �
+�     plansza   : array[ 1..80, 1..50 ] of byte;                             �
+�     TPS       : array[ 1..6 ] of byte;                                     �
+�     TKS       : array[ 1..3 ] of byte;                                     �
+�     pop, nast : PPlansza;                                                  �
+�    end{ TPlansza };                                                        �
+�                                                                            �
+�  gdzie:                                                                    �
+�  * plansza to nasze pole gry. Zauwaz, ze na y-ku ma 50! Jest ona wypelniona�
+�zerami i cyfra "3" w miejscu murow. Zadne inne cyfry nie powinny sie na niej�
+�znajdowac.                                                                  �
+�                                                                            �
+�  * TPK - Tablica Pozycji Startowych zawiera w polach :                     �
+�          1,2 - wspolrzedne x i y Drakk'i w opcji dla jednego gracza.       �
+�          3,4 -              - " -                      dwoch graczy.       �
+�          5,6 - wspolrzedne Vrii'i    - tylko opcja dla dwoch graczy.       �
+�    [!] wspolrzedne w tej tablicy to wspolrzedne w polu x(1..80),y(1..50).  �
+�                                                                            �
+�  * TKS - Tablica Kierunkow Poczatkowych zawiera w polach :                 �
+�            1 - kierunek poczatkowy Drakk'i w opcji dla jednego gracza.     �
+�            2 -               - " -                       dwoch graczy.     �
+�            3 - kierunek poczatkowy Vrii'i.                                 �
+�            gdzie : 1 oznacza Polnoc                                        �
+�                    2    -    Wschod                                        �
+�                    3    -    Poludnie                                      �
+�                    4    -    Zachod;                                       �
+�  * Polami "pop" i "nast" nie musicie sie przejmowac( wazne zeby byly ).    �
+�  Przydzialem pamieci zajmuje sie biblioteka UPlansze.                      �
+�                                                                            �
+���������������������������������������������������������ĴLNibbles v1.0������
+
+
+
+-------------------------------------------------------------------------------
+ [ 3 ]                               SETUP
+-------------------------------------------------------------------------------
+         nazwa programu : SetUp
+wykorzystane biblioteki : system   ( TP 7.0 )
+                          crt      ( TP 7.0 )
+                          dos      ( TP 7.0 )
+                          klawisze (  Luka  )
+                          kursory  (  Luka  )
+                          okna_005 (  Luka  )
+
+        + ---------------------------------------------------------- +
+        |    Wynikien dzialania programu jest plik 'lnibbles.cfg'.   |
+        + ---------------------------------------------------------- +
+
+     Ten program to w sumie test mojej biblioteki okienkowej. Mamy tutaj do
+wyboru kilka mozliwych ustawien,z ktorych warte omowienia jest tylko sterowanie.
+Dlaczego? Poniewaz co prawda w opcji "Monitory" mozna sobie ustawic monitor
+kolorowy ale program ( w tej wersji ) NIE MA ZADNYCH PROCEDUR ZMIANY KOLOROW!
+Natomiast co sie tyczy opcji "dodatki" to nie trzeba "wchodzic az tutaj" aby
+miec kontrole nad przyspieszeniem - patrz roz."Oddech Bogow".
+
+     � Sterowanie.
+     Przewidzialem dwie mozliwosci sterowania kazdym z Nibbles'ow. Sa to :
+               a) sterowanie kierunkowe, oraz
+               b)   - " -    obrotowe.
+     ad.a. To sterowanie wykorzystywane jest w "oryginalnych" Nibble'sach, je-
+dnak tam ma jedna mala wade : poruszajac sie np. w prawo i trzymajac caly czas
+wcisniety klawisz odpowiadajacy temu kierunkowi nie mozna skrecic dopoki nie
+zostana "wybrane" z bufora znaki ( oznaczajace przeciez kierunek w ktorym sie
+aktualnie poruszamy ), wobec czego musimy tak dlugo isc w prawo ile "wpadlo"
+nam tam znakow z tym kierunkiem - co niekiedy konczy sie tragicznie. Takie ste-
+rowanie mialo jednak duze zalety - nacisniete szybko, jeden po drugim, klawisze
+dwoch roznych kierunkow pozwalalo ( nie wazna predkosc ) obrocic sie "prawie
+w miejscu" ( prawie, poniewaz obrot w miejscu dla Nibbles'ow nie jest mozliwy ).
+W LNibble'sach usunieta zostala zarowno ta wada jak i zaleta. Mozna "zawalac"
+bufor znakami i jednoczesnie nagle zmienic kierunek - jednak nie mozna "progra-
+mowac" manewrow z wyprzedzeniem ( co jednak nie oznacza, ze nie mozna "ciasno
+skrecic" ). Coraz bardziej jednak tesknie do tego "programowania" i nie wyklu-
+czam, ze jezeli bedzie kolejna wersja to pojawi sie tam takie udogodnienie.
+
+     ad.b. Mialo byc przebojem, a nie jest - coz, zdarza sie.
+Zamiast czterech klawiszy mamy tutaj tylko dwa - prawo i lewo, wydawalo by sie
+iz wystarczy tylko troche potrenowac, jednak nie o to chodzi. Mianowicie przy
+duzych predkosciach ( duzych ? Wystarczy pograc dziesiec minut a te "duze" pre-
+dkosci okaza sie "zolwimi" ) nie mozna wykonywac "ciasnych skretow" ( inaczej
+- nie mozna sie odwrocic "prawie w miejscu" ) - nawet przy ustawieniu najszy-
+bszego czasu reagowania klawiatury - coz niestety jest ona bardzo wolna.
+ I znowu - jezeli bedzie nastepna wersja to ten tryb sterowania zostanie popra-
+wiony i moze wtedy wreszcie bedzie konkurencyjny dla "standardowego".
+
+     Tyle w tym temacie. Jak wam sie podoba biblioteka ?
+
+
+
+-------------------------------------------------------------------------------
+ [ 4 ]                              NIBBLES
+-------------------------------------------------------------------------------
+         nazwa programu : LNibbles
+wykorzystane biblioteki : system   ( TP 7.0 )
+                          crt      ( TP 7.0 )
+                          dos      ( TP 7.0 )
+                          klawisze (  Luka  )
+                          kursory  (  Luka  )
+                          UPlansze (  Luka  )
+
+          + ----------------------------------------------------------- +
+          |   Program  wymaga aby w tym samym  katalogu znajdowal sie   |
+          |   plik : lnibbles.cfg,  oraz ( jezeli  jako  parametr nie   |
+          |   zostal przekazany inny plik '*.nbb') plik: plansze.nbb.   |
+          + ----------------------------------------------------------- +
+
+
+-------------------------------------------------------------------------------
+ [ 5 ]                           ODDECH BOGOW
+-------------------------------------------------------------------------------
+
+     KODY.
+     Wpisuj je kiedy w dolnej lini ekranu pojawi sie napis 'Nacisnij SPACJE'
+     ( tuz przed rozpoczeciem rundy ).
+
+     speed - pozwala modyfikowac predkosc. Jednak podawana tu wartoscia jest
+           faktyczne opuznienie petli glownej programu.
+           Pamietaj wiec: czym mniejsza wartosc tym szybciej bedziesz zasuwac!
+
+     psp   - wlacza/wylacza przyspieszanie. Pozwala rowniez ustawic jego
+           wartosc.
+
+     dl    - ustalenie przyrostu po zjedzeniu numerka. Ustalona wartosc jest
+           zawsze liczona "razy numerek". Podanie zera nie blokuje przyrostu,
+           jedynie minimalizuje go do jednego segmentu po zjedzeniu jakiego-
+           kolwiek numerka( Nibbles'y lubia rosnac! ).
+
+     Sa rowniez kody zwiekszajace liczbe zyc, oraz przenoszace do nastepnej
+     planszy. Bardzo proste - szybko je znajdziesz.
+
+     Czy wiesz juz kogo zniblesujesz dzis w nocy ?
+
+
+-------------------------------------------------------------------------------
+ [ 6 ]                         POKOLENIE NASTEPNE
+-------------------------------------------------------------------------------
+
+     Mozemy zapisac sobie nastepujace wyznaczniki :
+
+     � Konfiguracja klawiszy sterujacych.
+     � Kolejne dodatki :
+       - premie, roznego rodzaju przyspieszacze, spowalniacze, obci-
+         nacze, oraz extra(!) doklejacze, itd...
+     � Petla glowna na "zewnatrz" - kompilowana w czasie uruchamiania
+       programu ( pozwoli na dowolna modyfikacje zasad ).
+     � Mozliwosc rozgrywania meczy - TRON!
+
+
+                                              ...Zobaczymy, na razie siemano!
+
+
+                                   CLEAR FUTURE
+                                        __
+                                         �`\
+                                       �)(�)|
+                                         `,~'
+                                        ""
+
+					                                                      luty 1999r.
