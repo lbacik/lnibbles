@@ -26,9 +26,9 @@ powinno wystarczyć! :)
 ## Dalsze informacje
 
 Polecam przejrzeć plik [LNIBBLES.TXT](LNIBBLES/LNIBBLES.TXT) oraz informacje dostępne pod klawiszem F1
-na ekranie startowym!
+na ekranie startowym (kliknij w poniższy obrazek jeżeli chcesz zobaczyć prostą animację z ekranu startowego)
 
-[LNibbles - Ekran startowy](https://www.youtube.com/watch?v=Yz9eLRIn8cw)
+[![LNibbles - Ekran startowy](https://img.youtube.com/vi/Yz9eLRIn8cw/0.jpg)](https://www.youtube.com/watch?v=Yz9eLRIn8cw "LNibbles - Ekran startowy")
 
 ## Setup & Build
 
