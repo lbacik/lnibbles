@@ -20,8 +20,11 @@ Wykonanie:
 
     $ ./lnibbles.sh
 
-powinno wystarczyć! :)
+powinno wystarczyć (przynajmniej w przypadku MacOS/OS X i GNU/Linuksa) :)
 
+Jeżeli jednak `bash` nie jest dostępny, to zawsze można jeszcze spróbować poprzez (będąc w katalogu głównym LNibbles):
+
+    $ java -jar jdosbox.jar
 
 ## Dalsze informacje
 
